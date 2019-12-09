@@ -12,8 +12,14 @@ const SongDisplay = ({ dispatch, song }) => {
       <h1>{title}</h1>
       <h4>{artist}</h4>
       <hr/>
-      <div onClick={e => {
-        e.preventDefault();
+      {/* <div onClick={event => {
+        event.preventDefault();
+        dispatch(nextLyric(id));
+      } else {
+        dispatch(restartSong(id));
+      }
+    }}> */}
+      <div onClick={() => {
         if(!(arrayPosition === songArray.length - 1)) {
           dispatch(nextLyric(id));
         } else {
@@ -39,14 +45,24 @@ SongDisplay.propTypes = {
 };
 
 const mapStateToProps = state => {
+  let songInfo;
   const song = state.songsById[state.currentSongId];
-  const songInfo = {
-    id: song.songId,
-    artist: song.artist,
-    title: song.title,
-    songArray: song.songArray,
-    arrayPosition: song.arrayPosition
-  };
+  if(!state.songsById[state.currentSongId].isFetching){
+    songInfo = {
+      id: song.songId,
+      artist: song.artist,
+      title: song.title,
+      songArray: song.songArray,
+      arrayPosition: song.arrayPosition
+    };    
+  } else {
+    songInfo = {
+      artist: '',
+      title: '',
+      songArray: '',
+      arrayPosition: ''
+    };
+  }
   return {
     song: songInfo
   };
