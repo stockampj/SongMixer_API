@@ -12,10 +12,14 @@
   "author": "Tyler Suderman",
   "license": "ISC",
   "dependencies": {
+    "install": "^0.13.0",
+    "isomorphic-fetch": "^2.2.1",
+    "npm": "^6.13.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -32,6 +36,6 @@
     "react-hot-loader": "^3.0.0-beta.7",
     "style-loader": "^0.18.2",
     "webpack": "^2.6.0",
-    "webpack-dev-server": "^2.5.0"
+    "webpack-dev-server": "^2.11.5"
   }
 }
